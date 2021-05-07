@@ -1,0 +1,9 @@
+l = list(map(int, input().split()))
+l.remove(-1)
+l1 = len(l)
+n = int(input())
+for i in range(0, len(l)-1):
+    for j in range(0, n):
+        if(len(l)>=(i+1)*n):
+            x = l[len(l)-(i+1)*n+j]
+            print(x, end=" ")
