@@ -1,0 +1,98 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<math.h>
+
+int main()
+{
+    int n, i, j, l, j1=0, j2=0, k, l1, l2, s=0, x1=0, x2=0, sum1=0, sum2=0, sum=0, a, b, c, flag=0;
+    
+    char arra1[1000];
+    char arra2[1000];
+    char arr1[1000];
+    char arr2[1000];
+    
+    int s1[1000];
+    int s2[1000];
+    
+    scanf("%s", arra1);
+    scanf("%s", arra2);
+    
+    i = 0, j=0;
+    while(arra1[i]!='\0')
+    {
+        if(arra1[i]!=',')
+        {
+            arr1[j] = (arra1[i]);
+            j++;
+        }
+        i++;
+    }
+    
+    i = 0, l=0;
+    while(arra2[i]!='\0')
+    {
+        if(arra2[i]!=',')
+        {
+            arr2[l] = (arra2[i]);
+            l++;
+        }
+        i++;
+    }
+    scanf("%d", &k);
+    
+    l1 = atoi(arr1);
+    l2 = atoi(arr2);
+    
+    while(l1!=0)
+    {
+        j1 = l1%10;
+        l1 = l1/10;
+        s1[x1] = j1;
+        x1++;
+    }
+    while(l2!=0)
+    {
+        j2 = l2%10;
+        l2 = l2/10;
+        s2[x2] = j2;
+        x2++;
+    }
+    
+    for(i=0 ; i<x1 ; i++)
+    {
+        sum1 = sum1 + s1[i]*pow(k, x1-1-i);
+    }
+    
+    for(i=0 ; i<x2 ; i++)
+    {
+        sum2 = sum2 + s2[i]*pow(k, x2-1-i);
+    }
+   
+    
+    sum=sum1+sum2;
+    for(a=0 ; a<10 ; a++)
+    {
+        for(b=0 ; b<10 ; b++)
+        {
+            for(c=0 ; c<10 ; c++)
+            {
+                if((a*1 + b*k + c*pow(k,2))==sum)
+                {
+                    printf("%d,%d,%d", a, b, c);
+                    flag=1;
+                    break;
+                }
+            }
+            if(flag==1)
+            {
+                break;
+            }
+        }
+        if(flag==1)
+        {
+            break;
+        }
+    }
+    return 0;
+}
