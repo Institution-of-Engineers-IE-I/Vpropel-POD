@@ -1,0 +1,89 @@
+// In C Language
+
+/ KUNAL SINGH    20BCE0449
+#include<stdio.h>
+
+int main()
+{
+    unsigned long long int n, i, j, k=1, x, y, x1, y1;
+    scanf("%llu", &n);
+
+    if(n%2==0)
+    {
+        x1 = n/2;
+        y1 = n/2;
+        i = 0;
+        while(k!=0)
+        {
+            x = n/2-i;
+            y = n - x;
+            if(x*y==x1*y1-9)
+            {
+                printf("%llu\n%llu", x, y);
+                k = 0;
+                break;
+            }
+            i++;
+        }
+    }
+    if(n%2==1)
+    {
+        x1 = (n+1)/2;
+        y1 = (n-1)/2;
+        i = 1;
+        while(k!=0)
+        {
+            x = n/2-i;
+            y = n - x;
+            if(x*y==x1*y1-12)
+            {
+                printf("%llu\n%llu", x, y);
+                k = 0;
+                break;
+            }
+            i++;
+        }
+    }
+    return 0;
+}
+
+
+
+
+
+# In Python
+
+# KUNAL SINGH   20BCE0449
+n = int(input())
+k = 0
+if (n % 2 == 0):
+    x1 = n // 2
+    y1 = n // 2
+    xy = x1 * y1 - 9
+    i = 1
+    while(k!=1):
+        x = n//2 - i
+        y = n-x
+        i += 1
+        if (x * y == xy and x<=y):
+            x = round(x)
+            y = round(y)
+            print(x)
+            print(y)
+            k = 1
+
+elif (n % 2 == 1):
+    x1 = n // 2
+    y1 = (n // 2)+1
+    xy = x1 * y1 - 12
+    i = 1
+    while(k!=1):
+        x = (n//2) - i
+        y = n-x
+        i += 1
+        if (x * y == xy and x <= y):
+            x = round(x)
+            y = round(y)
+            print(x)
+            print(y)
+            k = 1
