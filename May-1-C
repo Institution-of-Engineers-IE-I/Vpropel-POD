@@ -96,3 +96,40 @@ int main()
     }
     return 0;
 }
+
+
+
+# In Pyhton
+
+#KUNAL SINGH    20BCE0449
+
+list1 = list(map(int, input().split(',')))
+list2 = list(map(int, input().split(',')))
+k = int(input())
+
+l1 = len(list1)
+l2 = len(list2)
+
+s1 = 0
+s2 = 0
+
+for i in range(0, l1):
+    s1 = s1 + list1[i]*pow(k, i)
+    
+for i in range(0, l2):
+    s2 = s2 + list2[i]*pow(k, i)
+    
+s = s1 + s2
+
+list3 = []
+
+while(s!=0):
+    r = s%k
+    s = int(s/k)
+    list3.append(r)
+
+for i in range(0, len(list3)):
+    if i<len(list3)-1:
+        print(list3[i], end=",")
+    elif i==len(list3)-1:
+        print(list3[i])
