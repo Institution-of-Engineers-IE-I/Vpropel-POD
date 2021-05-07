@@ -1,0 +1,177 @@
+//IN C LANGUAGE
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+int main
+{
+    int i, j, k, l, l1, l2, count=0, flag, sum=0, level=-1, count1=0, flag1, level1=-1, sum1=0;
+    char s[101];
+    char w[101];
+    scanf("%s", s);
+    scanf("%s", w);
+    
+    l1 = strlen(s);
+    l2 = strlen(w);
+    
+    for(i=0 ; i<l1 ; i++)
+    {
+        for(j=0 ; j<l2 ; j++)
+        {
+            if(s[i]==w[j])
+            {
+                count++;
+                break;
+            }
+        }
+    }
+    if(count==l1)
+    {
+        flag = 1;
+        break;
+    }
+    else if(count!=l1)
+    {
+        flag = 0;
+        break;
+    }
+    count = 0;
+    if(flag==1)
+    {
+        for(i=0 ; i<l1 ; i++)
+        {
+            for(j=i ; j<l2 ; j++)
+            {
+                if(s[i]==w[j] && s[i+1]==w[j+1])
+                {
+                    level = 0;
+                    break;
+                }
+                else if(s[i]==w[j])
+                {
+                    for(k=i+1 ; k<l1 ; k++)
+                    {
+                        for(l=j+1 ; l<l2 ; l++)
+                        {
+                            if(s[k]==w[l])
+                            {
+                                count++;
+                            }
+                        }
+                    }
+                    if(count==l1-1)
+                    {
+                        level = abs(i-j);
+                        break;
+                    }
+                }
+                else
+                {
+                    level = 2;
+                    break;
+                }
+            }
+            if(level!=-1)
+            {
+                break;
+            }
+        }
+        for(i=0 ; i<l1 ; i++)
+        {
+            for(j=0 ; j<l2 ; j++)
+            {
+                if(s[i]==w[j])
+                {
+                    sum = sum + abs(i-j);
+                }
+            }
+        }
+        printf("%d\n%d\n", level, sum);
+    }
+    else if(flag==0)
+    {
+        printf("-1\n");
+    }
+    
+    // FOR W IS DERIVATIVE OF S OR NOT
+    for(i=0 ; i<l2 ; i++)
+    {
+        for(j=0 ; j<l1 ; j++)
+        {
+            if(w[i]==s[j])
+            {
+                count1++;
+                break;
+            }
+        }
+    }
+    if(count1==l2)
+    {
+        flag1 = 1;
+        break;
+    }
+    else if(count1!=l2)
+    {
+        flag1 = 0;
+        break;
+    }
+    if(flag1==1)
+    {
+        for(i=0 ; i<l2 ; i++)
+        {
+            for(j=i ; j<l1 ; j++)
+            {
+                if(w[i]==s[j] && w[i+1]==s[j+1])
+                {
+                    level1 = 0;
+                    break;
+                }
+                else if(w[i]==s[j])
+                {
+                    for(k=i+1 ; k<l2 ; k++)
+                    {
+                        for(l=j+1 ; l<l1 ; l++)
+                        {
+                            if(w[k]==s[l])
+                            {
+                                count1++;
+                            }
+                        }
+                    }
+                    if(count1==l2-1)
+                    {
+                        level1 = abs(i-j);
+                        break;
+                    }
+                }
+                else
+                {
+                    level1 = 2;
+                    break;
+                }
+            }
+            if(level1!=-1)
+            {
+                break;
+            }
+        }
+        for(i=0 ; i<l2 ; i++)
+        {
+            for(j=0 ; j<l1 ; j++)
+            {
+                if(w[i]==s[j])
+                {
+                    sum1 = sum1 + abs(i-j);
+                }
+            }
+        }
+        printf("%d\n%d\n", level1, sum1);
+    }
+    else if(flag1==0)
+    {
+        printf("-1");
+    }
+    
+    return 0;
+}
