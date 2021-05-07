@@ -1,0 +1,126 @@
+// In C Language
+
+[8:38 PM, 5/5/2021] The KUNAL 🇮🇳: // KUNAL SINGH   20BCE0449
+#include<stdio.h>
+
+int main()
+{
+    int r, c, i, j, count=0, countl=0, countx=0, countz=0;
+    scanf("%d%d", &r, &c);
+    
+    char arr[r][c];
+    for(i=0 ; i<r ; i++)
+    {
+        for(j=0 ; j<c ; j++)
+        {
+            scanf("%s", &arr[i][j]);
+        }
+    }
+    
+    for(i=0 ; i<r ; i++)
+    {
+        for(j=0 ; j<c ; j++)
+        {
+            if(arr[i][j]=='l')
+                countl++;
+            else if(arr[i][j]=='x')
+                countx++;
+            else if(arr[i][j]=='z')
+                countz++;
+        }
+    }
+    
+    for(i=0 ; i<r ; i++)
+    {
+        for(j=0 ; j<c ; j++)
+        {
+            if(arr[i][j]=='l' && arr[i+1][j]=='l' && arr[i+1][j+1]=='l')
+            {
+                count++;
+            }
+        }
+    }
+    
+    if(countl>0 && countx>0 && countz>0)
+        printf("%d", count);
+    else
+        printf("Invalid");
+    return 0;
+}
+[9:06 PM, 5/5/2021] The KUNAL 🇮🇳: # KUNAL SINGH    20BCE0449
+r = int(input())
+c = int(input())
+
+count=countl=countx=countz=0
+
+# CREATING AND INTIALIZING A 2D ARRAY WITH RANDOM NUMBER
+arr = [[0]*c]*r
+
+# ASSIGNING REAL VALUES TO ARRAYS
+for i in range(0, r):
+    a = list(map(str, input().split()))
+    arr[i] = a
+
+# CHECKING IF ALL 'L', 'X' AND 'Z' ARE PRESENT
+for i in range(0, r):
+    for j in range(0, c):
+        if(arr[i][j]=='l'):
+            countl += 1
+        if(arr[i][j]=='x'):
+            countx += 1
+        if(arr[i][j]=='z'):
+            countz += 1
+
+# COUNTING THE NUMBER OF L
+for i in range(0, r-1):
+    for j in range(0, c-1):
+        if(arr[i][j]=='l' and arr[i+1][j]=='l' and arr[i+1][j+1]=='l'):
+            count += 1;
+            
+# OUTPUT
+if(countl>0 and countx>0 and countz>0):
+    print(count)
+else:
+    print("Invalid")
+    
+    
+    
+    
+    
+# In Python
+
+# KUNAL SINGH    20BCE0449
+r = int(input())
+c = int(input())
+
+count=countl=countx=countz=0
+
+# CREATING AND INTIALIZING A 2D ARRAY WITH RANDOM NUMBER
+arr = [[0]*c]*r
+
+# ASSIGNING REAL VALUES TO ARRAYS
+for i in range(0, r):
+    a = list(map(str, input().split()))
+    arr[i] = a
+
+# CHECKING IF ALL 'L', 'X' AND 'Z' ARE PRESENT
+for i in range(0, r):
+    for j in range(0, c):
+        if(arr[i][j]=='l'):
+            countl += 1
+        if(arr[i][j]=='x'):
+            countx += 1
+        if(arr[i][j]=='z'):
+            countz += 1
+
+# COUNTING THE NUMBER OF L
+for i in range(0, r-1):
+    for j in range(0, c-1):
+        if(arr[i][j]=='l' and arr[i+1][j]=='l' and arr[i+1][j+1]=='l'):
+            count += 1;
+            
+# OUTPUT
+if(countl>0 and countx>0 and countz>0):
+    print(count)
+else:
+    print("Invalid")
