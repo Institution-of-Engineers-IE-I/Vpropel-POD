@@ -1,0 +1,46 @@
+#KUNAL SINGH   20BCE0449
+
+n = int(input())
+l1 = []
+for i in range(0, n):
+    x = list(map(int, input().split()))
+    l1.append(x[0])
+    l1.append(x[1])
+
+m = int(input())
+l2 = []
+for i in range(0, m):
+    x = list(map(int, input().split()))
+    l2.append(x[0])
+    l2.append(x[1])
+
+sum = 0
+for i in range(0, 2*m):
+    if(i%2==1):
+        if(i==1):
+            sum = l2[i]
+        else:
+            l2[i] = l2[i] + sum
+            sum = l2[i]
+
+count = 0
+for i in range(0, 2*n):
+    if(i%2==0):
+        for j in range(0, 2*m):
+            if(j%2==0):
+
+                if(l2[j]<=l1[i]):
+
+                    if(l2[j+1]>=l1[i+1]):
+                        count = count + 1
+
+if(n%2==0):
+    if(count>=n/2):
+        print("Allowed")
+    else:
+        print("Denied")
+elif(n%2==1):
+    if (count >= (n+1)/2):
+        print("Allowed")
+    else:
+        print("Denied")
