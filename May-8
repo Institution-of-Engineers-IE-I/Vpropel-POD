@@ -1,0 +1,17 @@
+w = input()
+w1 = input()
+t = input()
+t1 = input()
+
+flag = 0
+while(flag!=1):
+    if t in w:
+        w = w.replace(t, t1, 1)
+        if w==w1:
+            print("Yes")
+            flag = 1
+            break
+    if t not in w:
+        print("No")
+        flag=1
+        break
