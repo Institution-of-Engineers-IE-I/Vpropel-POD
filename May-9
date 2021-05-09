@@ -34,3 +34,44 @@ int main()
     printf("%d%d\n%d%d", a1, a2, a3, a4);
     return  0;
 }
+
+
+
+
+
+
+# KUNAL SINGH   20BCE0449
+h1 = int(input())
+h2 = int(input())
+m1 = int(input())
+m2 = int(input())
+
+if(h1==1):
+    hr = 12 + h2//5
+else:
+    hr = (h1-1)*4 + h2//5
+
+minute = (m1-1)*20 + m2
+x = 0
+
+if(minute>=60):
+    x = minute//60;
+    minute = minute - 60*x
+    
+a4 = minute%10
+a3 = minute//10
+
+hr = hr + x
+y = 0
+
+if(hr>12):
+    y = hr//12
+    hr = hr - 12*y
+
+a2 = hr%10
+a1 = hr//10
+
+print(a1, end="")
+print(a2)
+print(a3, end="")
+print(a4)
