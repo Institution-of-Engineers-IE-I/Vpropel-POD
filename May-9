@@ -1,0 +1,36 @@
+#include<stdio.h>
+
+int main()
+{
+    int h1, h2, m1, m2, a1, a2, a3, a4, x, y, hr, min;
+    scanf("%d%d%d%d", &h1, &h2, &m1, &m2);
+
+    if(h1==1)
+    {
+        hr = 12;
+        hr = hr + h2/5;
+    }
+    else
+    {
+        hr = (h1-1)*4;
+        hr = hr + h2/5;
+    }
+    min = (m1-1)*20 + m2;
+    if(min>=60)
+    {
+        x = min/60;
+        min = min - 60*x;
+        hr = hr + x;
+    }
+    a4 = min%10;
+    a3 = min/10;
+    if(hr>12)
+    {
+        y = hr/12;
+        hr = hr - 12*y;
+    }
+    a2 = hr%10;
+    a1 = hr/10;
+    printf("%d%d\n%d%d", a1, a2, a3, a4);
+    return  0;
+}
