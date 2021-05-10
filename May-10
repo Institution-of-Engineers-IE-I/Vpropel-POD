@@ -1,0 +1,109 @@
+/*
+
+Missing Operators
+An arithmetic expression was transmitted from one research centre to another. During the transmission, the operators were missed and only the operands were recieved at the other end. It is known that the arithmetic expression consisted of only two operators ‘+’ and ‘-’ and the operands were two 2 digits and one 1 digit number. The evaluated value of the expression is also known. The task is to find the exact expression.
+
+For example, if the value recieved is 87989 and the evaluated value is 7 then the expression is 87+9-89 and if the value recieved is 87989 and the value is 176 then the expression is 8+79+89.
+
+Input Format
+
+First line contains the value at the recieving end, n
+
+Next line is the evaluated value, v
+
+Output Format
+
+Print the expression
+
+Boundary Conditions
+
+Digits in the operands are 1 to 9
+
+*/
+
+
+
+
+// KUNAL SINGH   20BCE0449
+#include<stdio.h>
+
+int main()
+{
+    int n, m, i, j, l=0, sum=0, a, b, c, d, e, f, g, h;
+    scanf("%d%d", &n, &m);
+    
+    int arr[101], ar[101];
+    i=0;
+    while(n!=0)
+    {
+        ar[i] = n%10;
+        n = n/10;
+        i++;
+        l++;
+    }
+    for(i=0 ; i<l ; i++)
+    {
+        arr[i] = ar[l-1-i];
+    }
+    a = arr[0];
+    b = 10*arr[1]+arr[2];
+    c = 10*arr[3]+arr[4];
+    
+    d = 10*arr[0]+arr[1];
+    f = 10*arr[3]+arr[4];
+    e = arr[2];
+    
+    g = 10*arr[0]+arr[1];
+    h = 10*arr[2]+arr[3];
+    j = arr[4];
+    
+    if(a+b+c==m)
+    {
+        printf("%d+%d+%d", a, b, c);
+    }
+    else if(a+b-c==m)
+    {
+        printf("%d+%d-%d", a, b, c);
+    }
+    else if(a-b+c==m)
+    {
+        printf("%d-%d+%d", a, b, c);
+    }
+    else if(a-b-c==m)
+    {
+        printf("%d+%d+%d", a, b, c);
+    }
+    else if(d+e+f==m)
+    {
+        printf("%d+%d+%d", d, e, f);
+    }
+    else if(d+e-f==m)
+    {
+        printf("%d+%d-%d", d, e, f);
+    }
+    else if(d-e+f==m)
+    {
+        printf("%d-%d+%d", d, e, f);
+    }
+    else if(d-e-f==m)
+    {
+        printf("%d-%d-%d", d, e, f);
+    }
+    else if(g+h+j==m)
+    {
+        printf("%d+%d+%d", g, h, j);
+    }
+    else if(g+h-j==m)
+    {
+        printf("%d+%d-%d", g, h, j);
+    }
+    else if(g-h+j==m)
+    {
+        printf("%d-%d+%d", g, h, j);
+    }
+    else if(g-h-j==m)
+    {
+        printf("%d+%d+%d", g, h, j);
+    }
+    return 0;
+}
