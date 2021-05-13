@@ -1,0 +1,75 @@
+/*
+
+Square of Numbers Formed with 3s
+Square of numbers with only 3’s have a pattern in it. Given an integer ‘n’ with only 3s, write a C++ code to determine the square of it.
+
+Boundary Conditions
+
+Number of digits in the number ‘n’ <= 50
+
+Input Format
+
+First line contains the number, n
+
+Output Format
+
+Print the square of the number
+
+*/
+
+
+
+METHOD-1
+
+n = input()
+m = list(n)
+
+l = len(m)
+
+if(l==1):
+    print("9")
+elif(l>1):
+    x = l-1
+    print(x*'1', end="")
+    print("0", end="")
+    print(x*'8', end="")
+    print("9")
+    
+METHOD-2
+
+n = int(input())
+print(n*n)
+
+METHOD-3
+
+// KUNAL SINGH     20BCE0449
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+int main()
+{
+    int i, x, l;
+    char arr[51];
+    scanf("%s", arr);
+    
+    l = strlen(arr);
+    if(l==1)
+    {
+        printf("9");
+    }
+    else if(l>1)
+    {
+        x = l-1;
+        for(i=0 ; i<x ; i++)
+        {
+            printf("1");
+        }
+        printf("0");
+        for(i=0 ; i<x ; i++)
+        {
+            printf("8");
+        }
+        printf("9");
+    }
+}
