@@ -1,0 +1,137 @@
+/*
+
+Non Overlapping Homogenous Strings
+Given a string s of length n and integer k (1≤k≤n), s is said to have a homogenous-level l when:
+
+(i) There are ‘l’ substrings of length k all characters of the substring are same
+
+(ii) The ‘l’ substrings are non-overlapping
+
+For example, if the string is “aabb” and k = 2 then homogenous-level, l = 2. If there is no such substring then print 0. When k=2, l for string abed is 0.
+
+Input Format
+
+First line contains the string, S
+
+Next line contains the value of k
+
+Output Format
+
+Print the homogenous level, l
+
+*/
+
+
+
+
+*****METHOD-1 STRUCTURED PROGRAM IN C*****
+
+// KUNAL SINGH   20BCE0449
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+// FUNCTION TO CALCULATE THE HOMOGENOUS LEVEL
+int homogenous(char arr[], int n, int k){
+    int i=0, j, a, b, count=0;
+    while(i<n){
+        a = 0;
+        for(j=i ; j<i+k ; j++){
+            if(arr[i]==arr[j])
+                a++;
+            else if(arr[i]!=arr[j])
+                break;
+        }
+        if(a==k){
+            count++;
+            i = i+k;
+        }
+        else
+            i++;
+    }
+    return count;
+}
+
+// DRIVER CODE
+int main()
+{
+    int n, k, l;
+    char arr[101];
+    scanf("%s", arr);
+    scanf("%d", &k);
+    n = strlen(arr);
+    printf("%d", homogenous(arr, n, k));
+    return 0;
+}
+
+
+
+*****METHOD-2 UNSTRUCTURED PROGRAM IN C*****
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+int main()
+{
+    int n, i, j, k, l, a, b=0, count=0;
+    char arr[101];
+    scanf("%s", arr);
+    
+    n = strlen(arr);
+    scanf("%d", &k);
+    i = 0;
+    while(i<=n-1)
+    {
+        a = 0;
+        for(j=i ; j<i+k ; j++)
+        {
+            if(arr[i]==arr[j])
+            {
+                a++;
+            }
+            if(arr[i]!=arr[j])
+            {
+                break;
+            }
+        }
+        if(a==k)
+        {
+            count++;
+            i = i+k;
+        }
+        else
+        {
+            i++;
+        }
+    }
+    printf("%d", count);
+    return 0;
+}
+
+
+*****METHOD-3 PYTHON*****
+
+# KUNAL SINGH   20BCE0449
+s = input()
+k = int(input())
+
+n = len(s)
+i=0
+count=0
+
+while(i<n):
+    l = 0
+    j = i
+    for j in range(i, n):
+        if(s[i]==s[j]):
+            l += 1
+        elif(s[i]!=s[j]):
+            break
+    if(l==k):
+        count += 1
+        i = i+k
+    else:
+        i += 1
+        
+print(count)
