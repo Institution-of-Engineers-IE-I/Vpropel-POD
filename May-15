@@ -1,0 +1,91 @@
+/*
+
+Generate Third String
+
+In an alphabet series with three strings of same length, the third string is formed from the characters of the second string. The absolute difference of the corressponding characters in position ‘i’ of S1 and S2 is added with characters of S2 to form S3.
+Given two strings S1 and S2 of equal length, write a C++ code to generate S3 such that S1, S2 and S3 are in alphabet series. For example, strings HEJ, JGL and LIN are in alphabet series. If end of the alphabet is reached during processing then continue from the beginning of the alphabet. That is if S1 is AYB and S2 is BZC then S3 will be CAD.
+
+Input Format
+
+First line contains string S1
+Next line contains string S2
+
+Output Format
+
+Print the string S3
+
+*/
+
+
+*******METHOD-1 UNSTRUCTURED C PROGRAM*******
+
+// KUNAL SINGH   20BCE0449
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+int main()
+{
+    int i, j, k, l;
+    char s1[101], s2[101];
+    scanf("%s%s", s1, s2);
+    
+    l = strlen(s1);
+    
+    for(i=0 ; i<l ; i++)
+    {
+        k = abs(s2[i]-s1[i]);
+        if(s2[i]+k>90)
+            printf("%c", s2[i]+k-26);
+        else
+            printf("%c", s2[i]+k);
+    }
+    return 0;
+}
+
+*******METHOD-2 STRUCTURED C PROGRAM*******
+
+// KUNAL SINGH   20BCE0449
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+void stringS3(char s1[], char s2[], int l){
+    int i, k;
+    
+    for(i=0 ; i<l ; i++){
+        k = abs(s2[i]-s1[i]);
+        
+        if(s2[i]+k>90)
+            printf("%c", s2[i]+k-26);
+        else
+            printf("%c", s2[i]+k);
+    }
+}
+
+int main()
+{
+    int i, j, k, l;
+    char s1[101], s2[101];
+    scanf("%s%s", s1, s2);
+    l = strlen(s1);
+    stringS3(s1, s2, l);
+    return 0;
+}
+
+*******METHOD-3 PYTHON PROGRAM*******
+
+# KUNAL SINGH     20BCE0449
+s1 = input()
+s2 = input()
+l = len(s1)
+
+# ord() function is used to find the ASCII value of a character in pyhton
+# chr() function is used to find the charcater from the ASCII value in python
+
+for i in range(l):
+    k = abs(ord(s2[i])-ord(s1[i]))
+    if(ord(s2[i])+k>90):
+        print(chr(ord(s2[i])+k-26), end="")
+    else:
+        print(chr(ord(s2[i])+k), end="")
