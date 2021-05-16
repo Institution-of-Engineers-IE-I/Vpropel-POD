@@ -1,0 +1,54 @@
+/*
+
+Actual Time
+A clock which shows time in 24 hour format, runs ‘x’ minutes faster every one hour. The clock was set to correct time by 0:00. Given the value of ‘x’ and the time shown by the clock when the actual time is ‘h’ hours and ‘0’ minutes, write a C++ code to find hour of the actual time.
+
+For example, if the value of ‘x’ is 10 minutes and the time shown by the clock is 9:20 then the actual time is 8:00 and when ‘x’ is 15 minutes and the time shown by the clock is 12:30 then the actual time is 10:00
+
+Input Format
+
+First line contains the value of ‘x’
+
+Next line contains the hour of the time shown by the clock, ‘h’
+
+Next line contains the minutes of the time shown by the clock, ‘m’
+
+Output Format
+
+Print the hour of actual time
+
+*/
+
+******* METHOD-1 C CODE *******
+
+// KUNAL SINGH   20BCE0449
+#include<stdio.h>
+
+int main()
+{
+    int i, j, x, h, m, h1, m1, t1, t2;
+    scanf("%d%d%d", &x, &h, &m);
+    
+    t1 = 60*h + m;
+    for(i=0 ; i<h ; i++)
+    {
+        if(60*i==t1-x*i)
+        {
+            h = i;
+            break;
+        }
+    }
+    printf("%d", h);
+}
+
+******* METHOD-2 PYTHON *******
+
+# KUNAL SINGH     20BCE0449
+x = int(input())
+h = int(input())
+m = int(input())
+
+for i in range(h):
+    if(60*i==60*h+m-x*i):
+        print(i)
+        break
