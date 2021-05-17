@@ -1,0 +1,56 @@
+/*
+
+Minimum Cost Laptop
+Ganesh has got some amount ‘x’ in hand and he wants to purchase a laptop of cost less than or equal to x. But he likes the laptop to have a bigger screen. Given the amount ‘x’ in hand and the details of laptop, write a C++ code to print the details of the laptop that fits in budget and has maximum screen area. If no laptop fits in his budget then print ‘No laptop’.
+
+Input Format
+
+First line contains the amount ‘x’ in hand
+
+Next line contains the number of laptops, n
+
+Next ‘n’ lines contain the details of the laptops – Length of screen, breadth of screen and cost of laptop
+
+Output Format
+
+Print the detail of laptop that fits in his budget and has maximum screen size and print ‘No laptop’ otherwise
+
+*/
+
+******* METHOD-1 C CODE *******
+
+// KUNAL SINGH     20BCE0449
+#include<stdio.h>
+
+int main()
+{
+    int x, n, i, k, max=0;
+    scanf("%d%d", &x,&n);
+    
+    int arr[n][4];
+    for(i=0 ; i<n ; i++)
+    {
+        scanf("%d%d%d", &arr[i][0], &arr[i][1], &arr[i][2]);
+        arr[i][3] = arr[i][0]*arr[i][1];
+        
+        if(i==0 && arr[i][2]<=x)
+        {
+            max = arr[i][2];
+            k = i;
+        }
+        else if(arr[i][2]>max && arr[i][2]<=x)
+        {
+            max = arr[i][2];
+            k = i;
+        }
+    }
+    if(max==0)
+    {
+        printf("No laptop");
+    }
+    else
+    {
+        printf("%d %d %d", arr[k][0], arr[k][1], arr[k][2]);
+    }
+    return 0;
+}
