@@ -1,0 +1,46 @@
+/*
+
+Position of Child in Queue
+In a queue of ‘n’ children, Kailash is in position ‘x’ from the left end and Mona is at position ‘y’ from the right end. When they interchange their places among themselves, Kailash goes to position ‘z’ from the left end. Given the values of ‘x’, ‘y’ and ‘z’, write a C++ code to find the total number of children in the queue and the new position of Mona from the right end. For example if ‘x’ is 3, ‘y’ is 8 and ‘z’ is 16 then the total number of children are 23 and z is 21.
+
+Input Format
+
+First line contains the value of x
+
+Next line contains the value of y
+
+Next line contains the value of z
+
+Output Format
+
+First line should contain the number of children, n
+
+Next line should contain the position of Mona from right end
+
+*/
+
+
+******* METHOD-1 C *******
+
+#include<stdio.h>
+
+int main()
+{
+    int x, y, z;
+    scanf("%d%d%d", &x, &y, &z);
+    
+    printf("%d\n%d", z+y-1, z+y-x);
+    return 0;
+}
+
+******* METHOD-2 PYTHON *******
+
+x = int(input())
+y = int(input())
+z = int(input())
+
+b = y+z-1
+c = b-x+1
+
+print(b)
+print(c)
