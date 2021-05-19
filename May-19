@@ -19,7 +19,39 @@ Print the minimum number of bits required to store the numbers of the applicatio
 */
 
 
-******* METHOD-1 PYTHON *******
+******* METHOD-1 C *******
+
+// KUNAL SINGH    20BCE0449
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+    int n, num, i, j=0, max=0;
+    scanf("%lld", &n);
+    
+    long long int arr[n];
+    for(i=0 ; i<n ; i++)
+    {
+        scanf("%lld", &arr[i]);
+    }
+    while(j<n)
+    {
+        i = log2(arr[j])+1;
+        if(i>max)
+        {
+            max = i;
+        }
+        j++;
+    }
+    printf("%d", max);
+    return 0;
+}
+
+
+
+
+******* METHOD-2 PYTHON *******
 
 # KUNAL SINGH   20BCE0449
 n = int(input())
