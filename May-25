@@ -1,0 +1,126 @@
+/*
+
+Nullify Bits
+For a given integer, odd_bit_value is defined as the number of bits which are '1' in odd position and even_bit_value is defined as the number of bits which are '1' in even position. Nullification is a process in which the 1's in odd position are made as zero if odd_bit_value is lesser than even_bit_value and it makes 1's in even position as zeros otherwise.
+
+In this process, number of bits to be considered for this process is equal to the minimum number of bits required to represent the number. The right most bit of the number is considered to at poistion 1. For example, if n is 12 - 1100, it becomes 4 and 15 becomes 5.
+
+Given an integer, write a C++ program to print the number after nullification.
+
+Input Format
+
+First line contains number, n
+
+Output Format
+
+Print the number after nullification
+
+*/
+
+
+******* METHOD-1 C CODE *******
+
+// KUNAL SINGH   20BCE0449
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+    long long int n, i=0, j, k, l, m=0, odd=0, even=0;
+    scanf("%d", &n);
+    
+    int arr[10001];
+    while(n>=1)
+    {
+        arr[i] = n%2;
+        if(i%2==0 && n%2==1)
+        {
+            odd++;
+        }
+        else if(i%2==1 && n%2==1)
+        {
+            even++;
+        }
+        n = n/2;
+        i++;
+    }
+    l = i;
+    
+    if(odd<even)
+    {
+        for(i=0 ; i<l ; i++)
+        {
+            if(i%2==0 && arr[i]==1)
+            {
+                arr[i] = 0;
+            }
+        }
+    }
+    else if(odd>=even)
+    {
+        for(i=0 ; i<l ; i++)
+        {
+            if(i%2==1 && arr[i]==1)
+            {
+                arr[i] = 0;
+            }
+        }
+    }
+    for(i=0 ; i<l ; i++)
+    {
+        j = i;
+        while(j--)
+        {
+            arr[i] =  arr[i]*2;
+        }
+        m = m + arr[i];
+    }
+    printf("%d", m);
+    return 0;
+}
+
+
+
+******* METHOD-2 PYTHON CODE *******
+
+# KUNAL SINGH   20BCE0449
+num = int(input())
+n = 0
+l=[]
+odd=0
+even=0
+
+while(num >= 1):
+    a = num%2
+    l.append(a)
+    num = num//2
+    
+l.reverse()
+l1 = []
+
+for i in range(len(l)):
+    if(i%2==0):
+        if(l[i]==1):
+            odd += 1
+    elif(i%2==1):
+        if(l[i]==1):
+            even += 1
+
+if(odd<=even):
+    for i in range(len(l)):
+        if(i%2==0):
+            l1.append(0)
+        else:
+            l1.append(l[i])
+            
+elif(odd>even):
+    for i in range(0, len(l)):
+        if(i%2==1):
+            l1.append(0)
+        else:
+            l1.append(l[i])
+
+for i in range(len(l1)):
+    n = n + l1[i]*pow(2,len(l)-1-i)
+    
+print(n)
