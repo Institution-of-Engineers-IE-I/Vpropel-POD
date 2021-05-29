@@ -1,0 +1,134 @@
+/*
+
+Distance from Position in Sliding Puzzle
+All of us might have played this sliding puzzle in our childhood.
+
+
+Now consider a sliding puzzle of dimension nxn. The tiles of all these do not start with 1, and let the starting number of the tiles be ‘s’. Given the shuffled order of the tiles in the puzzle, write a C++ program to find the distance of each tile from its original position. Distance of a tile from its original position is defined as abs (number of rows displaced *2) + abs (number of columns displaced). For example, if the shuffled tiles are as follows (Empty cell is represented by -1):
+
+41 53 42 44
+
+43 46 48 52
+
+49 47 50 55
+
+45 54 51 -1
+
+and starting tile number is 41 then the distance of the tiles are
+
+41 – 0
+
+53 – 2*3+1
+
+42 – 1
+
+44 – 0
+
+43 – 2*1+2
+
+46 – 0
+
+48 – 1
+
+52 – 2*1
+
+49 – 0
+
+47 – 2*1+1
+
+50 – 1
+
+55 - 2*1+1
+
+45 - 2*2
+
+54 – 0
+
+51 – 2*1
+
+Input Format
+
+First line contains the value of n, dimension of sliding tiles
+
+Next ‘n’ lines contain the value of tiles in each row
+
+Output Format
+
+Print the tile number and the distance of the tile from its original position separated by a tab in the order given in the input
+
+*/
+
+
+******* METHOD-1 C CODE *******
+
+// KUNAL SINGH   20BCE0449
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+int main()
+{
+    int n, i, j, k, l, temp, sum;
+    scanf("%d", &n);
+    
+    int arr1[n][n], arr2[n][n];
+    for(i=0 ; i<n ; i++)
+    {
+        for(j=0 ; j<n ; j++)
+        {
+            scanf("%d", &arr1[i][j]);
+        }
+    }
+    
+    for(i=0 ; i<n ; i++)
+    {
+        for(j=0 ; j<n ; j++)
+        {
+            if(arr1[i][j]==-1)
+            {
+                arr2[i][j] = 10000;
+            }
+            else
+                arr2[i][j] = arr1[i][j];
+        }
+    }
+    
+    for(i=0 ; i<n ; i++)
+    {
+        for(j=0 ; j<n ; j++)
+        {
+            for(k=0 ; k<n ; k++)
+            {
+                for(l=0 ; l<n ; l++)
+                {
+                    if(arr2[i][j]<arr2[k][l])
+                    {
+                        temp = arr2[i][j];
+                        arr2[i][j] = arr2[k][l];
+                        arr2[k][l] = temp;
+                    }
+                }
+            }
+        }
+    }
+    
+    for(i=0 ; i<n ; i++)
+    {
+        for(j=0 ; j<n ; j++)
+        {
+            for(k=0 ; k<n ; k++)
+            {
+                for(l=0 ; l<n ; l++)
+                {
+                    if(arr1[i][j]==arr2[k][l])
+                    {
+                        printf("%d\t", arr1[i][j]);
+                        sum = abs(i-k)*2 + abs(j-l);
+                        printf("%d\n", sum);
+                    }
+                }
+            }
+        }
+    }
+    return 0;
+}
