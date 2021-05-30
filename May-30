@@ -1,0 +1,63 @@
+/*
+
+Build a Staircase
+Each step in a staircase built by a constructor has two bricks less than the number of bricks used in the previous step as shown below.
+
+ 
+
+
+Given the number of bricks ‘n’ available in a construction site and the number of steps to be built ‘k’, write a C++ program to check if ‘k’ steps can be built with exactly ‘n’ bricks. If ‘k’ steps can be built then print the number of bricks to be used in each step starting from the last brick and print ‘Cannot be built’ otherwise.
+
+For example if ‘n’ is 15 and ‘k’ is 3 then print 3, 5 and 7 and if ‘n’ is 17 and ‘k’ is 3 then print ‘Cannot be built’.
+
+Input Format
+
+First line contains the number of bricks in the construction site, n
+
+Next line contains the number of steps to be built, k
+
+Output Format
+
+Print the number of bricks to be used in each step, starting from the last step if ‘k’ steps can be built with exactly ‘n’ bricks and print ‘Cannot be built’ otherwise
+
+*/
+
+
+******* METHOD-1 C CODE *******
+
+// KUNAL SINGH   20BCE0449
+#include<stdio.h>
+
+int main()
+{
+    unsigned long long int n, k, i, j, s;
+    scanf("%llu%llu", &n, &k);
+    
+    if(n%k==0)
+    {
+        if(k%2==0)
+        {
+            s = (n/k) - (k/2)*2;
+            s = s+1;
+            for(i=0 ; i<k ; i++)
+            {
+                printf("%llu\t", s);
+                s = s+2;
+            }
+        }
+        if(k%2==1)
+        {
+            s = (n/k) - (k/2)*2;
+            for(i=0 ; i<k ; i++)
+            {
+                printf("%llu\t", s);
+                s = s+2;
+            }
+        }
+    }
+    else if(n%k!=0)
+    {
+        printf("Cannot be built");
+    }
+    return 0;
+}
