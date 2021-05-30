@@ -61,3 +61,26 @@ int main()
     }
     return 0;
 }
+
+
+******* METHOD-2 PYTHON CODE *******
+
+# KUNAL SINGH    20BCE0449
+n = int(input())
+k = int(input())
+
+if n%k==0:
+    if k%2==0:
+        s = n/k - (k/2)*2
+        s = s+1
+        for i in range(k):
+            print(int(s), end="\t")
+            s = s+2
+    if k%2==1:
+        s = n/k - (k//2)*2
+        for i in range(k):
+            print(int(s), end="\t")
+            s = s+2
+
+if n%k!=0:
+    print("Cannot be built")
